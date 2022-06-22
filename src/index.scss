@@ -69,6 +69,9 @@ header {
   li + li {
     margin-left: 30px;
   }
+  li {
+    cursor: pointer;
+  }
 }
 
 .headerPrice {
@@ -107,6 +110,16 @@ header {
   display: flex;
   border-radius: 10px;
   padding: 0 15px;
+  position: relative;
+
+  .clear {
+    position: absolute;
+    right: 15px;
+    width: 18px;
+    height: 18px;
+    top: 15px;
+    cursor: pointer;
+  }
 
   input {
     outline: none;
@@ -159,6 +172,44 @@ header {
   flex: 1;
 }
 
+.items-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cartEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1;
+  img {
+    margin-bottom: 20px;
+  }
+  h2 {
+    display: block;
+    margin: 0 auto;
+  }
+  p {
+    display: block;
+    text-align: center;
+    opacity: 0.6;
+  }
+  .greenButton {
+    img {
+      transform: rotate(180deg) translateX(5px);
+      margin: 0;
+      transition: transform 0.15s ease-in-out;
+    }
+    &:hover {
+      img {
+        transform: rotate(180deg) translateX(10px);
+      }
+    }
+  }
+}
+
 .cartItem {
   display: flex;
   align-items: center;
@@ -200,6 +251,17 @@ header {
     font-size: 14px;
   }
 }
+@keyframes button-loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .cartTotalBlock {
   div {
@@ -221,6 +283,17 @@ header {
 
   .greenButton {
     position: relative;
+
+    &:disabled {
+      animation: button-loading 0.8s ease-in-out infinite;
+      background-color: #bebebe !important;
+      cursor: default;
+      &:hover {
+        img {
+          transform: translateX(0);
+        }
+      }
+    }
 
     &:hover {
       img {
