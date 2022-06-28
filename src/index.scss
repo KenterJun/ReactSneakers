@@ -1,0 +1,295 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Inter", system-ui;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #e7f6ff;
+}
+
+.wrapper {
+  outline: none;
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  max-width: 1080px;
+  margin: 85px auto;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    list-style-type: none;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eeeeee;
+  padding: 40px;
+  .headerLeft {
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 16px;
+    }
+  }
+  h3,
+  p {
+    margin: 0;
+  }
+  h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #9d9d9d;
+  }
+}
+
+.headerRight {
+  display: flex;
+  li + li {
+    margin-left: 30px;
+  }
+  li {
+    cursor: pointer;
+  }
+}
+
+.headerPrice {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  span {
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #5c5c5c;
+  }
+}
+
+.content {
+  padding: 40px;
+  h1 {
+    margin: 0;
+  }
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+}
+
+.sneakers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-block {
+  border: 1px solid #f3f3f3;
+  display: flex;
+  border-radius: 10px;
+  padding: 0 15px;
+  position: relative;
+
+  .clear {
+    position: absolute;
+    right: 15px;
+    width: 18px;
+    height: 18px;
+    top: 15px;
+    cursor: pointer;
+  }
+
+  input {
+    outline: none;
+    border: 0;
+    padding: 13px;
+    font-size: 16px;
+    width: 200px;
+  }
+}
+
+.items {
+  flex: 1;
+}
+
+.items-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cartEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1;
+  img {
+    margin-bottom: 20px;
+  }
+  h2 {
+    display: block;
+    margin: 0 auto;
+  }
+  p {
+    display: block;
+    text-align: center;
+    opacity: 0.6;
+  }
+  .greenButton {
+    img {
+      transform: rotate(180deg) translateX(5px);
+      margin: 0;
+      transition: transform 0.15s ease-in-out;
+    }
+    &:hover {
+      img {
+        transform: rotate(180deg) translateX(10px);
+      }
+    }
+  }
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  border: 1px solid #f3f3f3;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+  margin-bottom: 20px;
+  img {
+    margin-right: 20px;
+  }
+  .removeBtn {
+    opacity: 0.5;
+    transition: opacity 0.15s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .cartItemImg {
+    width: 70px;
+    height: 70px;
+    background-size: contain;
+    background-position: 0 -3px;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+  }
+}
+
+.cartContent {
+  flex: 1;
+  margin-right: 20px;
+  p {
+    font-size: 14px;
+    margin: 0;
+  }
+  b {
+    font-size: 14px;
+  }
+}
+@keyframes button-loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.cartTotalBlock {
+  div {
+    flex: 1;
+    height: 1px;
+    border-bottom: 1px dashed #dfdfdf;
+    position: relative;
+    top: -4px;
+    margin: 0 7px;
+  }
+  ul {
+    margin-bottom: 20px;
+  }
+  li {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+  }
+
+  .greenButton {
+    position: relative;
+
+    &:disabled {
+      animation: button-loading 0.8s ease-in-out infinite;
+      background-color: #bebebe !important;
+      cursor: default;
+      &:hover {
+        img {
+          transform: translateX(0);
+        }
+      }
+    }
+
+    &:hover {
+      img {
+        transform: translateX(5px);
+      }
+    }
+
+    img {
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      transition: transform 0.15s ease-in-out;
+    }
+  }
+}
+
+.greenButton {
+  width: 100%;
+  height: 55px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+  background: #9dd558;
+  border-radius: 18px;
+  border: 0;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+
+  &:hover {
+    background: lighten(#9dd558, 5%);
+  }
+
+  &:active {
+    background: darken(#9dd558, 5%);
+  }
+}
